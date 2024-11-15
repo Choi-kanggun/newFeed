@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -8,14 +8,12 @@ export const Container = styled.div`
 `;
 
 export const StyledForm = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: #F8F9FA;
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 600px;
+  width: 100%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -28,45 +26,37 @@ export const InputWrapper = styled.div`
   gap: 5px;
 `;
 
-
 export const Label = styled.label`
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 500;
   margin-bottom: 5px;
 `;
 
 export const Input = styled.input`
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 15px;
-  width: 450px;
+  outline: none;
 
   &:focus {
     border-color: #3676E8;
     box-shadow: 0 0 3px rgba(76, 175, 80, 0.2);
-    outline: none;
   }
 `;
 
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-`;
-
 export const Button = styled.button`
-  padding: 10px;
-  background-color: #3676E8;
-  color: white;
+  padding: 12px;
   font-size: 16px;
+  color: white;
+  background-color: #3676E8;
   border: none;
   border-radius: 4px;
-  margin-right: 10px;
-  width: 150px; 
   cursor: pointer;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #2E6BCC;
+    background-color: #3272dc;
   }
 `;

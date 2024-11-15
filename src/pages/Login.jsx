@@ -1,7 +1,14 @@
 import React from 'react';
 import { Button, ButtonContainer, Container, Input, InputWrapper, Label, StyledForm } from '../styles/login';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleButton = () => {
+    navigate('/signup')
+  }
+
   return (
   <Container>
     <StyledForm>
@@ -14,7 +21,7 @@ const Login = () => {
         <Input type='password' placeholder='비밀번호를 입력해주세요'/>
       </InputWrapper>
       <ButtonContainer>
-        <Button type="submit" >회원가입</Button>
+        <Button type="submit" onClick={handleButton}>회원가입</Button>
         <Button type="button" >로그인</Button>
       </ButtonContainer>
     </StyledForm>
