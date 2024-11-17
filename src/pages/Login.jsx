@@ -1,13 +1,7 @@
 import React from 'react';
 import { Button, ButtonContainer, Container, Input, InputWrapper, Label, StyledForm } from '../styles/login';
-import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const navigate = useNavigate();
-
-  const handleButton = () => {
-    navigate('/signup')
-  }
 
   return (
   <Container>
