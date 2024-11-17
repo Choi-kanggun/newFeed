@@ -8,6 +8,9 @@ import MyPost from '../pages/MyPost';
 import CreatePostPage from '../pages/CreatePostPage';
 import CorrectionPage from '../pages/CorrectionPage';
 
+import MyPage from '../pages/MyPage';
+
+
 const Router = () => {
   return (
     <BrowserRouter>
@@ -19,6 +22,7 @@ const Router = () => {
         <Route path="/CreatePost" element={<CreatePostPage />}></Route>
         <Route path="/Correction" element={<CorrectionPage />}></Route>
         <Route path="/detail" element={<Detail />}></Route>
+        <Route path="/mypage" element={<MyPage />}></Route>
       </Routes>
     </BrowserRouter>
   );
