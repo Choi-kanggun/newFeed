@@ -1,6 +1,7 @@
 import React from 'react';
+import { Btn, Div, Div2, Form } from '../../styles/home';
 
-const CreatePost = () => {
+const Correction = () => {
   return (
     <Div>
       <Form>
@@ -26,4 +27,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default Correction;
