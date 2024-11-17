@@ -1,7 +1,8 @@
 import React from 'react';
+import CreatePost from '../components/myPost/CreatePost';
 
 const Home = () => {
-  return <h1>Home</h1>;
+  return <CreatePost />;
 };
 
 export default Home;

@@ -4,7 +4,10 @@ import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
-  ${reset}  
+  ${reset}
+  body{
+    background-color: #ffffff
+  }  
 `;
 
 const App = () => {
