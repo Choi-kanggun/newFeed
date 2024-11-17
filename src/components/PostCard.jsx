@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostCardContainer, PostCardHeader, ProfileImage, Tag, Thumbnail, Title } from '../styles/PostCard';
+import { PostCardContainer, PostCardHeader, ProfileImage, Tag, Thumbnail, Title } from '../styles/postCard';
 
 const PostCard = ({ post }) => {
   return (
