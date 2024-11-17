@@ -1,7 +1,7 @@
 import React from 'react';
-import PostList from '../components/PostList';
-import Header from '../components/common/Header';
 import { HomeContainer } from '../styles/home';
+import Header from '../components/common/Header';
+import PostList from '../components/PostList';
 
 const homePosts = [
   {
@@ -62,13 +62,13 @@ const homePosts = [
   }
 ];
 
-const Home = () => {
+const MyPost = () => {
   return (
     <HomeContainer>
       <Header />
-      <PostList posts={homePosts} />
+      <PostList posts={homePosts} type={'mypost'} />
     </HomeContainer>
   );
 };
 
-export default Home;
+export default MyPost;
