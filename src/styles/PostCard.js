@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const PostCardContainer = styled.div`
@@ -55,4 +56,45 @@ export const Tag = styled.span`
   margin-right: 0.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+export const ButtonBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+`;
+
+export const EditButton = styled(Link)`
+  display: flex;
+  align-items: center;
+  padding: 0.3rem 0.6rem;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+`;
+
+export const DeleteButton = styled.button`
+  padding: 0.3rem 0.6rem;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  &:hover {
+    color: white;
+    background-color: black;
+  }
 `;

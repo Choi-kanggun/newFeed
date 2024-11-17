@@ -30,15 +30,15 @@ const Header = () => {
           </button>
           {isDropdownOpen && (
             <Dropdown>
-              <li>
-                <DropdownButton to="">내 리플레이</DropdownButton>
-              </li>
-              <li>
-                <DropdownButton to="">설정</DropdownButton>
-              </li>
-              <li>
-                <DropdownButton to="">로그아웃</DropdownButton>
-              </li>
+              <DropdownButton to="/mypost">
+                <li>내 리플레이</li>
+              </DropdownButton>
+              <DropdownButton to="">
+                <li>설정</li>
+              </DropdownButton>
+              <DropdownButton to="">
+                <li>로그아웃</li>
+              </DropdownButton>
             </Dropdown>
           )}
         </ProfileMenuBox>

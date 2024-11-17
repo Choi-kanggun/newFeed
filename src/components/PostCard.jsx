@@ -1,7 +1,17 @@
 import React from 'react';
-import { PostCardContainer, PostCardHeader, ProfileImage, Tag, Thumbnail, Title } from '../styles/postCard';
+import {
+  ButtonBox,
+  DeleteButton,
+  EditButton,
+  PostCardContainer,
+  PostCardHeader,
+  ProfileImage,
+  Tag,
+  Thumbnail,
+  Title
+} from '../styles/postCard';
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, type }) => {
   return (
     <PostCardContainer>
       <PostCardHeader>
@@ -17,6 +27,12 @@ const PostCard = ({ post }) => {
           return <Tag key={index}>{tag}</Tag>;
         })}
       </div>
+      {type === 'mypost' && (
+        <ButtonBox>
+          <EditButton to="">수정</EditButton>
+          <DeleteButton>삭제</DeleteButton>
+        </ButtonBox>
+      )}
     </PostCardContainer>
   );
 };
