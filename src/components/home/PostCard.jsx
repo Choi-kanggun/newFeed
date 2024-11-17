@@ -9,7 +9,7 @@ import {
   Tag,
   Thumbnail,
   Title
-} from '../styles/postCard';
+} from '../../styles/postCard';
 
 const PostCard = ({ post, type }) => {
   return (
