@@ -9,16 +9,20 @@ const Correction = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      let { data, error } = await supabase.from('post').select('*');
-      setSong_Url(data[0].song_url);
-      setContent(data[0].content);
-      setTitle(data[0].title);
+      let { data, error } = await supabase.from('posts').select('*');
+      console.log(data);
+      setSong_Url(data.song_url);
+      setContent(data.content);
+      setTitle(data.title);
     };
     fetchData();
   }, []);
 
-  const handelSaveEdit = async () => {
-    const { data, error } = await supabase.from('post').update({ song_url, content, title }).eq('id', 1).select();
+  const handelSaveEdit = async (e) => {
+    const { data, error } = await supabase
+      .from('posts')
+      .update({ song_url, content, title })
+      .eq('id', '406e33a1-cb44-4528-92c7-e0a0227e597d');
   };
 
   const handelSongUrlChange = (e) => {

@@ -8,7 +8,7 @@ const AuthProvider = ({ children }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
-  const loaction = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,12 +28,13 @@ const AuthProvider = ({ children }) => {
         }
         setIsLogin(false);
       }
+      setLoading(false);
     });
 
     return () => subscription.unsubscribe();
   }, [navigate, location.pathname]);
 
-  return <AuthContext.Provider value={{ isLogin, setIsLogin }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ isLogin, setIsLogin }}>{loading ? null : children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;

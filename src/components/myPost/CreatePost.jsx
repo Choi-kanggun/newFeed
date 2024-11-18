@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Btn, Div, Div2, Form } from '../../styles/post';
-import { supabase } from '../../supabase/supabaseClient';
+
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '../../supabase/supabaseClient';
 
 const CreatePost = () => {
   const [song_url, setSong_Url] = useState('');
@@ -21,7 +22,7 @@ const CreatePost = () => {
   };
   const handelSubmit = async (e) => {
     e.preventDefault();
-    const { data, error } = await supabase.from('post').insert([{ song_url, title, content }]).select();
+    const { data, error } = await supabase.from('posts').insert([{ song_url, title, content }]);
     alert('등록완료');
     navigate('/');
   };
