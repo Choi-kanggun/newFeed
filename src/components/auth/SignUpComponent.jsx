@@ -1,30 +1,64 @@
-import React from 'react';
-import { StyledForm, Container, Label, InputWrapper, Input, Button } from '../../styles/signup';
+import React, { useState } from 'react';
+import {
+  Dropdown,
+  DropdownButton,
+  HeaderContainer,
+  HomeButton,
+  Logo,
+  NavActionsBox,
+  NewPostButton,
+  ProfileMenuBox
+} from '../../styles/header';
+import supabase from '../../supabase/supabaseClient';
+import { useNavigate } from 'react-router-dom';
 
-const SignUpComponent = () => {
+const Header = () => {
+  const navigate = useNavigate();
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen((prev) => !prev);
+  };
+
+  const handleLogout = async () => {
+    const {error} = await supabase.auth.signOut();
+
+    if (error) {
+      alert("로그아웃 실패!" + error.message);
+    } else {
+      alert("로그아웃 성공!");
+      navigate('/login')
+    }
+  }
+
   return (
-    <Container>
-      <StyledForm>
-        <InputWrapper>
-          <Label>아이디</Label>
-          <Input type="text" placeholder="아이디를 입력하세요" />
-        </InputWrapper>
-        <InputWrapper>
-          <Label>비밀번호</Label>
-          <Input type="password" placeholder="비밀번호를 입력하세요" />
-        </InputWrapper>
-        <InputWrapper>
-          <Label>비밀번호 확인</Label>
-          <Input type="password" placeholder="비밀번호를 확인하세요" />
-        </InputWrapper>
-        <InputWrapper>
-          <Label>닉네임</Label>
-          <Input type="text" placeholder="닉네임을 입력하세요" />
-        </InputWrapper>
-        <Button>회원가입</Button>
-      </StyledForm>
-    </Container>
+    <HeaderContainer>
+      <HomeButton to="/">Home</HomeButton>
+      <Logo>Replay</Logo>
+      <NavActionsBox>
+        <NewPostButton>새 글 작성</NewPostButton>
+        <ProfileMenuBox>
+          <button onClick={toggleDropdown}>
+            <img src="user-avatar.png" alt="user-profile" />
+            <span>▼</span>
+          </button>
+          {isDropdownOpen && (
+            <Dropdown>
+              <DropdownButton to="/mypost">
+                <li>내 리플레이</li>
+              </DropdownButton>
+              <DropdownButton to="">
+                <li>설정</li>
+              </DropdownButton>
+              <DropdownButton type='button' onClick={handleLogout}>
+                <li>로그아웃</li>
+              </DropdownButton>
+            </Dropdown>
+          )}
+        </ProfileMenuBox>
+      </NavActionsBox>
+    </HeaderContainer>
   );
 };
 
-export default SignUpComponent;
+export default Header;
