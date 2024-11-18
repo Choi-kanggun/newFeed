@@ -23,6 +23,7 @@ const Router = () => {
         <Route path="/Correction" element={<CorrectionPage />}></Route>
         <Route path="/detail" element={<Detail />}></Route>
         <Route path="/mypage" element={<MyPage />}></Route>
+        
       </Routes>
     </BrowserRouter>
   );
