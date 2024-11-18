@@ -1,25 +1,37 @@
 import React, { useState } from 'react';
 import { Btn, Div, Div2, Form } from '../../styles/post';
+import { supabase } from '../../supabase/supabaseClient';
+import { useNavigate } from 'react-router-dom';
 
 const CreatePost = () => {
-  // const [linkValue, setLinkValue] = useState('');
+  const [song_url, setSong_Url] = useState('');
   const [title, setTitle] = useState('');
-  const [review, setReview] = useState('');
-  // const [tagValue, setTagValue] = useState('');
+  const [content, setContent] = useState('');
+
+  const navigate = useNavigate();
 
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
   const handelReview = (e) => {
-    setReview(e.target.value);
+    setContent(e.target.value);
+  };
+  const handelLinkValue = (e) => {
+    setSong_Url(e.target.value);
+  };
+  const handelSubmit = async (e) => {
+    e.preventDefault();
+    const { data, error } = await supabase.from('post').insert([{ song_url, title, content }]).select();
+    alert('등록완료');
+    navigate('/');
   };
 
   return (
     <Div>
-      <Form>
+      <Form onSubmit={handelSubmit}>
         <Div2>
           <label>영상링크</label>
-          <input src="" alt="" />
+          <input type="text" value={song_url} onChange={handelLinkValue} />
         </Div2>
         <Div2>
           <label>제목</label>
@@ -27,7 +39,7 @@ const CreatePost = () => {
         </Div2>
         <Div2>
           <label>추천 이유</label>
-          <input type="text" value={review} onChange={handelReview} />
+          <input type="text" value={content} onChange={handelReview} />
         </Div2>
         <Div2>
           <label>태그</label>

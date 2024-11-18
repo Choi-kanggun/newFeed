@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Div = styled.div`
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -13,34 +12,43 @@ export const Div2 = styled.div`
   display: flex;
   flex-direction: column;
   input {
-    outline: none;
-    border: none;
     border-radius: 10px;
     width: 403px;
     height: 50px;
   }
   label {
-    font-size: 30px;
+    font-size: 20px;
   }
 `;
 
 export const Form = styled.form`
-  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #d9d9d9;
-  width: 555px;
-  height: 774px;
-  justify-content: space-evenly;
-  border-radius: 10px;
+  gap: 30px;
+  padding: 40px 0px;
 `;
 
 export const Btn = styled.button`
+  padding: 10px;
   background-color: #3676e8;
   color: white;
+  font-size: 16px;
   border: none;
-  padding: 10px 70px;
-  border-radius: 5px;
-  font-size: 20px;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: 150px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #2e6bcc;
+  }
 `;
