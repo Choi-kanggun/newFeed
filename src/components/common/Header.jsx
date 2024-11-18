@@ -9,27 +9,16 @@ import {
   NewPostButton,
   ProfileMenuBox
 } from '../../styles/header';
-import supabase from '../../supabase/supabaseClient';
+
 import { useNavigate } from 'react-router-dom';
+import { logOut } from '../../api/auth';
 
 const Header = () => {
-  const navigate = useNavigate();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen((prev) => !prev);
   };
-
-  const handleLogout = async () => {
-    const {error} = await supabase.auth.signOut();
-
-    if (error) {
-      alert("로그아웃 실패!" + error.message);
-    } else {
-      alert("로그아웃 성공!");
-      navigate('/login')
-    }
-  }
 
   return (
     <HeaderContainer>
@@ -50,7 +39,7 @@ const Header = () => {
               <DropdownButton to="">
                 <li>설정</li>
               </DropdownButton>
-              <DropdownButton type='button' onClick={handleLogout}>
+              <DropdownButton type="button" onClick={logOut}>
                 <li>로그아웃</li>
               </DropdownButton>
             </Dropdown>

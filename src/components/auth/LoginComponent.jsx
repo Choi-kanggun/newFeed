@@ -1,47 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, ButtonContainer, Container, Input, InputWrapper, Label, StyledForm } from '../../styles/login';
-import supabase from '../../supabase/supabaseClient';
+import { signIn } from '../../api/auth';
 
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [session, setSession] = useState(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchSession = async () => {
-      const { data: sessionData } = await supabase.auth.getSession();
-      setSession(sessionData);
-
-      const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-        setSession(session);
-        if (event === 'SIGNED_IN') {
-          navigate('/'); 
-        }
-      });
-
-      return () => {
-        authListener?.off();
-      };
-    };
-
-    fetchSession();
-  }, [navigate]);
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-
-    const { user, error } = await supabase.auth.signInWithPassword({ email, password });
-
-    if (error) {
-      alert('로그인 실패: ' + error.message);
-    }
-  };
 
   return (
     <Container>
-      <StyledForm onSubmit={handleLogin}>
+      <StyledForm>
         <InputWrapper>
           <Label>아이디</Label>
           <Input
@@ -61,10 +29,12 @@ const LoginComponent = () => {
           />
         </InputWrapper>
         <ButtonContainer>
-          <Link to='/signup'>
-          <Button type="button">회원가입</Button>
+          <Link to="/signup">
+            <Button type="button">회원가입</Button>
           </Link>
-          <Button type="submit">로그인</Button>
+          <Button type="button" onClick={() => signIn({ email, password })}>
+            로그인
+          </Button>
         </ButtonContainer>
       </StyledForm>
     </Container>

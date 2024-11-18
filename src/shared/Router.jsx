@@ -9,21 +9,23 @@ import CreatePostPage from '../pages/CreatePostPage';
 import CorrectionPage from '../pages/CorrectionPage';
 
 import MyPage from '../pages/MyPage';
-
+import AuthProvider from '../context/AuthContext';
 
 const Router = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/signup" element={<SignUp />}></Route>
-        <Route path="/Login" element={<Login />}></Route>
-        <Route path="/mypost" element={<MyPost />}></Route>
-        <Route path="/CreatePost" element={<CreatePostPage />}></Route>
-        <Route path="/Correction" element={<CorrectionPage />}></Route>
-        <Route path="/detail" element={<Detail />}></Route>
-        <Route path="/mypage" element={<MyPage />}></Route>
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/signup" element={<SignUp />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/mypost" element={<MyPost />}></Route>
+          <Route path="/CreatePost" element={<CreatePostPage />}></Route>
+          <Route path="/Correction" element={<CorrectionPage />}></Route>
+          <Route path="/detail" element={<Detail />}></Route>
+          <Route path="/mypage" element={<MyPage />}></Route>
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 };

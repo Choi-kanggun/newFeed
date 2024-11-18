@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { StyledForm, Container, Label, InputWrapper, Input, Button } from '../../styles/signup';
 import { useNavigate } from 'react-router-dom';
-import supabase from '../../supabase/supabaseClient';
+import { supabase } from '../../supabase/supabaseClient';
 
 const SignUpComponent = () => {
   const emailRef = useRef();
@@ -13,7 +13,6 @@ const SignUpComponent = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    const email = emailRef.current.value;
     const password = passwordRef.current.value;
     const confirmPassword = confirmPasswordRef.current.value;
 
