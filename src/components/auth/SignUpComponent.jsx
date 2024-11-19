@@ -2,10 +2,7 @@ import React, { useRef } from 'react';
 import { StyledForm, Container, Label, InputWrapper, Input, Button, ButtonContainer } from '../../styles/signup';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase/supabaseClient';
-import {
-  HeaderContainer,
-  Logo,
-} from '../../styles/header';
+import { HeaderContainer, Logo } from '../../styles/header';
 
 const SignUpComponent = () => {
   const emailRef = useRef();
@@ -48,38 +45,38 @@ const SignUpComponent = () => {
     }
 
     alert('회원가입 성공!');
-    
+
     navigate('/');
   };
 
   return (
     <>
-    <HeaderContainer>
-    <Logo style={{margin:'0 auto'}}>Replay</Logo>
-    </HeaderContainer>
-    <Container>
-      <StyledForm onSubmit={handleSignup}>
-        <InputWrapper>
-          <Label>아이디</Label>
-          <Input type="email" placeholder="아이디를 입력하세요" ref={emailRef} />
-        </InputWrapper>
-        <InputWrapper>
-          <Label>비밀번호</Label>
-          <Input type="password" placeholder="비밀번호를 입력하세요" ref={passwordRef} />
-        </InputWrapper>
-        <InputWrapper>
-          <Label>비밀번호 확인</Label>
-          <Input type="password" placeholder="비밀번호를 확인하세요" ref={confirmPasswordRef} />
-        </InputWrapper>
-        <InputWrapper>
-          <Label>닉네임</Label>
-          <Input type="text" placeholder="닉네임을 입력하세요" ref={nicknameRef} />
-        </InputWrapper>
-        <ButtonContainer>
-        <Button type="submit">회원가입</Button>
-        </ButtonContainer>
-      </StyledForm>
-    </Container>
+      <HeaderContainer>
+        <Logo style={{ margin: '0 auto' }}>Replay</Logo>
+      </HeaderContainer>
+      <Container>
+        <StyledForm onSubmit={handleSignup}>
+          <InputWrapper>
+            <Label>아이디</Label>
+            <Input type="email" placeholder="아이디를 입력하세요" ref={emailRef} />
+          </InputWrapper>
+          <InputWrapper>
+            <Label>비밀번호</Label>
+            <Input type="password" placeholder="비밀번호를 입력하세요" ref={passwordRef} />
+          </InputWrapper>
+          <InputWrapper>
+            <Label>비밀번호 확인</Label>
+            <Input type="password" placeholder="비밀번호를 확인하세요" ref={confirmPasswordRef} />
+          </InputWrapper>
+          <InputWrapper>
+            <Label>닉네임</Label>
+            <Input type="text" placeholder="닉네임을 입력하세요" ref={nicknameRef} />
+          </InputWrapper>
+          <ButtonContainer>
+            <Button type="submit">회원가입</Button>
+          </ButtonContainer>
+        </StyledForm>
+      </Container>
     </>
   );
 };
