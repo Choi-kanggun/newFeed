@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { Btn, Div, Div2, Form } from '../../styles/post';
 import { supabase } from '../../supabase/supabaseClient';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Correction = () => {
   const [song_url, setSong_Url] = useState('');
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-      let { data, error } = await supabase.from('posts').select('*');
-      console.log(data);
-      setSong_Url(data.song_url);
-      setContent(data.content);
-      setTitle(data.title);
+      let { data, error } = await supabase.from('posts').select('*').eq('id', id);
+      console.log('data', data);
+      setSong_Url(data[0].song_url);
+      setContent(data[0].content);
+      setTitle(data[0].title);
     };
     fetchData();
   }, []);
 
   const handelSaveEdit = async (e) => {
-    const { data, error } = await supabase.from('posts').update({ song_url, content, title });
-    // .eq('id', '');
+    e.preventDefault();
+    const { data, error } = await supabase.from('posts').update({ song_url, content, title }).eq('id', id);
+    navigate('/mypost');
   };
 
   const handelSongUrlChange = (e) => {
@@ -52,7 +56,6 @@ const Correction = () => {
           <label>태그</label>
           <input />
         </Div2>
-        {/* 수정 클릭했을떄 home 으로 이동 */}
         <Btn onClick={handelSaveEdit}>수정하기</Btn>
       </Form>
     </Div>

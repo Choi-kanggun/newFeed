@@ -46,7 +46,8 @@ const SignUpComponent = () => {
 
     alert('회원가입 성공!');
 
-    navigate('/');
+    await supabase.auth.signOut();
+    navigate('/login');
   };
 
   return (
