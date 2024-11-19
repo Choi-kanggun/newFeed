@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, ButtonContainer, Container, Input, InputWrapper, Label, StyledForm } from '../../styles/login';
 import { signIn } from '../../api/auth';
+import { HeaderContainer, Logo } from '../../styles/header';
+
 
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   return (
+    <>
+    <HeaderContainer>
+    <Logo style={{margin:'0 auto'}}>Replay</Logo>
+    </HeaderContainer>
     <Container>
       <StyledForm>
         <InputWrapper>
@@ -38,6 +44,7 @@ const LoginComponent = () => {
         </ButtonContainer>
       </StyledForm>
     </Container>
+    </>
   );
 };
 

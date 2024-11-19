@@ -4,16 +4,16 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 56px);
+  background: #F8F9FA;
 `;
 
 export const StyledForm = styled.form`
-  background: #F8F9FA;
+  background: #FFFFFF;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
+  width: 600px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -46,13 +46,19 @@ export const Input = styled.input`
   }
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+`;
+
 export const Button = styled.button`
-  padding: 12px;
+  padding: 8px;
   font-size: 16px;
-  color: white;
   background-color: #3676E8;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
+  width: 150px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 
