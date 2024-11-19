@@ -19,10 +19,7 @@ const Correction = () => {
   }, []);
 
   const handelSaveEdit = async (e) => {
-    const { data, error } = await supabase
-      .from('posts')
-      .update({ song_url, content, title })
-      .eq('id', '406e33a1-cb44-4528-92c7-e0a0227e597d');
+    const { data, error } = await supabase.from('posts').update({ song_url, content, title }).eq('id', user.id);
   };
 
   const handelSongUrlChange = (e) => {
