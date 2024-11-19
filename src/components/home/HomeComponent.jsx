@@ -1,70 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { HomeContainer } from '../../styles/home';
-
 import PostList from './PostList';
+import { supabase } from '../../supabase/supabaseClient';
 
 const HomeComponent = () => {
-  const homePosts = [
-    {
-      id: 1,
-      profileImage: 'https:',
-      nickname: '유저 1',
-      title: '제목 1',
-      thumbnail: 'https:',
-      tags: ['#어쩌구', '#저쩌구']
-    },
-    {
-      id: 2,
-      profileImage: 'https:',
-      nickname: '유저 2',
-      title: '제목 2',
-      thumbnail: 'https:',
-      tags: ['#어쩌구', '#저쩌구']
-    },
-    {
-      id: 3,
-      profileImage: 'https:',
-      nickname: '유저 3',
-      title: '제목 3',
-      thumbnail: 'https:',
-      tags: ['#어쩌구', '#저쩌구']
-    },
-    {
-      id: 4,
-      profileImage: 'https:',
-      nickname: '유저 4',
-      title: '제목 4',
-      thumbnail: 'https:',
-      tags: ['#어쩌구', '#저쩌구']
-    },
-    {
-      id: 5,
-      profileImage: 'https:',
-      nickname: '유저 5',
-      title: '제목 5',
-      thumbnail: 'https:',
-      tags: ['#어쩌구', '#저쩌구']
-    },
-    {
-      id: 6,
-      profileImage: 'https:',
-      nickname: '유저 6',
-      title: '제목 6',
-      thumbnail: 'https:',
-      tags: ['#어쩌구', '#저쩌구']
-    },
-    {
-      id: 7,
-      profileImage: 'https:',
-      nickname: '유저 7',
-      title: '제목 7',
-      thumbnail: 'https:',
-      tags: ['#어쩌구', '#저쩌구']
-    }
-  ];
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPostsWithUsers = async () => {
+      const { data, error } = await supabase.from('posts').select(`id, title, content, song_url, user_id, users (
+        id, nickname, profile_url)`);
+      if (error) {
+        console.error('데이터 가져오기 실패:', error.message);
+        return;
+      }
+      setPosts(data);
+    };
+
+    fetchPostsWithUsers();
+  }, []);
+
   return (
     <HomeContainer>
-      <PostList posts={homePosts} />
+      <PostList posts={posts} />
     </HomeContainer>
   );
 };

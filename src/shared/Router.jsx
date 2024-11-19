@@ -21,7 +21,7 @@ const Router = () => {
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/mypost" element={<MyPost />}></Route>
           <Route path="/CreatePost" element={<CreatePostPage />}></Route>
-          <Route path="/Correction" element={<CorrectionPage />}></Route>
+          <Route path="/Correction/:id" element={<CorrectionPage />}></Route>
           <Route path="/detail" element={<Detail />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
         </Routes>

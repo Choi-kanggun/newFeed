@@ -25,7 +25,7 @@ const Header = () => {
       <HomeButton to="/">Home</HomeButton>
       <Logo>Replay</Logo>
       <NavActionsBox>
-        <NewPostButton>새 글 작성</NewPostButton>
+        <NewPostButton to="/createpost">새 글 작성</NewPostButton>
         <ProfileMenuBox>
           <button onClick={toggleDropdown}>
             <img src="user-avatar.png" alt="user-profile" />
