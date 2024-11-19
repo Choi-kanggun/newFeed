@@ -1,7 +1,11 @@
 import React, { useRef } from 'react';
-import { StyledForm, Container, Label, InputWrapper, Input, Button } from '../../styles/signup';
+import { StyledForm, Container, Label, InputWrapper, Input, Button, ButtonContainer } from '../../styles/signup';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase/supabaseClient';
+import {
+  HeaderContainer,
+  Logo,
+} from '../../styles/header';
 
 const SignUpComponent = () => {
   const emailRef = useRef();
@@ -49,6 +53,10 @@ const SignUpComponent = () => {
   };
 
   return (
+    <>
+    <HeaderContainer>
+    <Logo style={{margin:'0 auto'}}>Replay</Logo>
+    </HeaderContainer>
     <Container>
       <StyledForm onSubmit={handleSignup}>
         <InputWrapper>
@@ -67,9 +75,12 @@ const SignUpComponent = () => {
           <Label>닉네임</Label>
           <Input type="text" placeholder="닉네임을 입력하세요" ref={nicknameRef} />
         </InputWrapper>
+        <ButtonContainer>
         <Button type="submit">회원가입</Button>
+        </ButtonContainer>
       </StyledForm>
     </Container>
+    </>
   );
 };
 

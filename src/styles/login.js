@@ -4,14 +4,15 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 56px);
+  background: #F8F9FA;
 `;
 
 export const StyledForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #F8F9FA;
+  background: #FFFFFF;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -19,6 +20,7 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  transform: translateY(-56);
 `;
 
 export const InputWrapper = styled.div`
@@ -56,12 +58,11 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  padding: 10px;
+  padding: 8px;
   background-color: #3676E8;
-  color: white;
   font-size: 16px;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   margin-right: 10px;
   width: 150px; 
   cursor: pointer;
