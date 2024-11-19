@@ -12,7 +12,8 @@ const Correction = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      let { data, error } = await supabase.from('posts').select('*').eq('id', id);
+      let { data } = await supabase.from('posts').select('*').eq('id', id);
+
       console.log('data', data);
       setSong_Url(data[0].song_url);
       setContent(data[0].content);

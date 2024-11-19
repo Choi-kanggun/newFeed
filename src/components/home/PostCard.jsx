@@ -10,27 +10,35 @@ import {
   Thumbnail,
   Title
 } from '../../styles/postCard';
+import { getYoutubeThumbnailUrl } from '../../utils/youtubeThumbnail';
 
-const PostCard = ({ post, type }) => {
+const PostCard = ({ post, type, handleDeleteCard }) => {
+  const thumbnailUrl = getYoutubeThumbnailUrl(post.song_url);
   return (
     <PostCardContainer>
       <PostCardHeader>
-        <ProfileImage src={post.profileImage} alt={post.nickname} />
-        <span>{post.nickname}</span>
+        <ProfileImage src={post.users.profile_url} alt={post.users.nickname} />
+        <span>{post.users.nickname}</span>
       </PostCardHeader>
       <Title>
         <p>{post.title}</p>
       </Title>
-      <Thumbnail src={post.thumbnail} alt={post.title} />
-      <div>
+      <Thumbnail src={thumbnailUrl} alt={post.title} />
+      {/* <div>
         {post.tags.map((tag, index) => {
           return <Tag key={index}>{tag}</Tag>;
         })}
-      </div>
+      </div> */}
       {type === 'mypost' && (
         <ButtonBox>
-          <EditButton to="">수정</EditButton>
-          <DeleteButton>삭제</DeleteButton>
+          <EditButton to={`/Correction/${post.id}`}>수정</EditButton>
+          <DeleteButton
+            onClick={() => {
+              handleDeleteCard(post.id);
+            }}
+          >
+            삭제
+          </DeleteButton>
         </ButtonBox>
       )}
     </PostCardContainer>
