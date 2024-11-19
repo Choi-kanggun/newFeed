@@ -22,15 +22,16 @@ const SignUpComponent = () => {
       return;
     }
 
-    const { data, error } = await supabase.auth.signUp(
-      {
-        email: emailRef.current.value,
-        password: passwordRef.current.value
-      },
-      {
-        data: { nickname: nicknameRef.current.value }
+    const { data, error } = await supabase.auth.signUp({
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+      options: {
+        data: {
+          nickname: nicknameRef.current.value,
+          profile_url: 'https://i.pinimg.com/736x/3b/73/a1/3b73a13983f88f8b84e130bb3fb29e17.jpg'
+        }
       }
-    );
+    });
 
     const userData = await supabase.from('users').insert({
       id: data.user?.id, // 회원가입 성공 시 받아온 data중 id(uid) 값을 가져온다.

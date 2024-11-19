@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   border-radius: 10px;
-  width: 80%;
+  width: 70%;
   height: 80%;
   display: flex;
   flex-direction: row;
@@ -27,13 +27,13 @@ export const ContainerLeft = styled.div`
   justify-content: center;
   align-items: center;
   border-right: 1px solid #dcdcdc;
-  width: 50%;
+  width: 70%;
   height: 100%;
 `;
 
 export const VideoBox = styled.div`
   width: 80%;
-  height: 40%;
+  height: 50%;
   border: 1px none black;
   display: flex;
   justify-content: center;
@@ -46,7 +46,7 @@ export const ContentBox = styled.div`
   padding: 15px;
   margin-top: 20px;
   width: 75%;
-  height: 40%;
+  height: 30%;
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 10px rgba(50, 118, 232, 0.3);
@@ -108,6 +108,7 @@ export const CommentInfo = styled.div`
 
 export const ProfileImg = styled.img`
   width: 50px;
+  padding-right: 15px;
 `;
 
 export const Writer = styled.span`

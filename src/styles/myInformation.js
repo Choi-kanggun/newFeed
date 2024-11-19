@@ -34,23 +34,18 @@ export const ProfileBox = styled.div`
   height: 40%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding: 0 70px;
 `;
 
-export const ProfileImgBox = styled.div`
-  width: 50%;
-  height: 100%;
-  margin-bottom: 50px;
-`;
+export const ProfileImgBox = styled.div``;
 
-export const ProfileImg = styled.div`
-  margin-top: 20px;
-  width: 80%;
-  height: 80%;
+export const ProfileImg = styled.img`
+  width: 200px;
+  height: 200px;
   box-shadow: 0 1px 10px rgba(50, 118, 232, 0.3);
-  border-radius: 10px;
-  background-image: url(${(props) => props.$img});
-  background-size: cover;
-  overflow: hidden;
+  border-radius: 50%;
+  object-fit: contain;
 `;
 
 const Button = styled.button`
@@ -68,7 +63,7 @@ const Button = styled.button`
 `;
 
 export const BtnBox = styled.div`
-  width: 86%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -109,25 +104,31 @@ export const SelectBtnBox = styled.div`
 export const SubmitBtnBox = styled.div``;
 
 export const SubmitBtn = styled(Button)`
-  width: 70px;
+  width: 80px;
 `;
 
 export const NickNameBox = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 60px;
   width: 30%;
   height: 50%;
+  padding: 50px;
+  margin-right: 140px;
 `;
 
-export const User = styled.span``;
+export const User = styled.span`
+  font-size: 40px;
+`;
 export const UserNickName = styled.p`
   margin: 15px 0;
+  font-size: 40px;
+  font-weight: bold;
 `;
 export const NewNickInput = styled.input`
+  font-size: 18px;
   margin: 15px 0;
   border: none;
-  padding: 10px;
-  width: 90%;
+  padding: 15px 10px;
+  width: 100%;
   box-shadow: 0 1px 10px rgba(50, 118, 232, 0.3);
 `;
