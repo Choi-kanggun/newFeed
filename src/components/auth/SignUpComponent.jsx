@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { StyledForm, Container, Label, InputWrapper, Input, Button, ButtonContainer } from '../../styles/signup';
+import { StyledForm, Container, Label, InputWrapper, Input, Button, ButtonContainer, Span } from '../../styles/signup';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase/supabaseClient';
 import { HeaderContainer, Logo } from '../../styles/header';
@@ -127,7 +127,7 @@ const SignUpComponent = () => {
             placeholder="이메일을 입력하세요"
             ref={emailRef}
             onChange={handleEmailChange}/>
-            {emailError && <span style={{color: 'red', fontSize: '12px'}}>{emailError}</span>}
+            {emailError && <Span>{emailError}</Span>}
           </InputWrapper>
           <InputWrapper>
             <Label>비밀번호</Label>
@@ -136,7 +136,7 @@ const SignUpComponent = () => {
             placeholder="비밀번호를 입력하세요"
             ref={passwordRef}
             onChange={handlePasswordChange}/>
-            {passwordError && <span style={{color: 'red', fontSize: '12px'}}>{passwordError}</span>}
+            {passwordError && <Span>{passwordError}</Span>}
           </InputWrapper>
           <InputWrapper>
             <Label>비밀번호 확인</Label>
@@ -145,7 +145,7 @@ const SignUpComponent = () => {
             placeholder="비밀번호를 확인하세요"
             ref={confirmPasswordRef}
             onChange={handleConfirmPasswordChange}/>
-            {confirmPasswordError && <span style={{color: 'red', fontSize: '12px'}}>{confirmPasswordError}</span>}
+            {confirmPasswordError && <Span>{confirmPasswordError}</Span>}
           </InputWrapper>
           <InputWrapper>
             <Label>닉네임</Label>
@@ -154,7 +154,7 @@ const SignUpComponent = () => {
             placeholder="닉네임을 입력하세요"
             ref={nicknameRef}
             />
-            {nicknameError && <span style={{color: 'red', fontSize: '12px'}}>{nicknameError}</span>}
+            {nicknameError && <Span>{nicknameError}</Span>}
           </InputWrapper>
           <ButtonContainer>
             <Button type="submit">회원가입</Button>

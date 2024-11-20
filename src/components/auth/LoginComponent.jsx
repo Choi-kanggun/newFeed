@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, ButtonContainer, Container, Input, InputWrapper, Label, StyledForm } from '../../styles/login';
 import { signIn } from '../../api/auth';
 import { HeaderContainer, Logo } from '../../styles/header';
+import { Span } from '../../styles/signup';
 
 
 const LoginComponent = () => {
@@ -73,7 +74,7 @@ const LoginComponent = () => {
             value={email}
             onChange={handleEmailChange}
           />
-          {emailError && <span style={{color: 'red', fontSize: '12px'}}>{emailError}</span>}
+          {emailError && <Span>{emailError}</Span>}
         </InputWrapper>
         <InputWrapper>
           <Label>비밀번호</Label>
@@ -83,7 +84,7 @@ const LoginComponent = () => {
             value={password}
             onChange={handlePasswordChange}
           />
-          {passwordError && <span style={{color: 'red', fontSize: '12px'}}>{passwordError}</span>}
+          {passwordError && <Span>{passwordError}</Span>}
         </InputWrapper>
         <ButtonContainer>
           <Link to="/signup">
