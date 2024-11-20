@@ -20,7 +20,6 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transform: translateY(-56);
 `;
 
 export const InputWrapper = styled.div`
