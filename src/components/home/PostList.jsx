@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PostListContainer, SearchIcon, SearchInput, SearchInputContainer } from '../../styles/postList';
+import { PostListContainer, SearchIcon, SearchInput, SearchInputContainer } from '../../styles/PostList';
 import PostCard from './PostCard';
 import { supabase } from '../../supabase/supabaseClient';
 import searchIconImg from '../../assets/images/search.png';
