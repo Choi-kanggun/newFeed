@@ -39,21 +39,20 @@ const PostCard = ({ post, type, handleDeleteCard }) => {
         if (!user) return;
 
         setUser(user);
+
+        const isLiked = await checkLike(user.id, post.id);
+        setLiked(isLiked);
+
+        const count = await getLikesCount(post.id);
+        setLikesCount(count);
       } catch (error) {
         console.error(error);
       }
     };
-
-    const fetchLikeStatus = async () => {
-      const isLiked = await checkLike(user.id, post.id);
-      setLiked(isLiked);
-
-      const count = await getLikesCount(post.id);
-      setLikesCount(count);
-    };
-    fetchLikeStatus();
-    getUserData();
-  }, [user?.id, post.id]);
+    if (post?.id) {
+      getUserData();
+    }
+  }, [post.id]);
 
   const handleLikeToggle = async () => {
     try {
