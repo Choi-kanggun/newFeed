@@ -38,6 +38,7 @@ const Header = () => {
     };
 
     getUserData();
+    console.log(user);
   }, []);
 
   return (

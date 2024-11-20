@@ -8,8 +8,7 @@ export const PostCardContainer = styled.div`
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  height: 300px;
+  width: 200px;
   overflow: hidden;
 
   &:hover {
@@ -18,12 +17,18 @@ export const PostCardContainer = styled.div`
   }
 `;
 
+export const StLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
 export const PostCardHeader = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.7rem;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 `;
 
 export const ProfileImage = styled.img`
@@ -34,34 +39,36 @@ export const ProfileImage = styled.img`
 `;
 
 export const Title = styled.div`
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 1rem;
+  height: 1.2rem;
 `;
 
 export const Thumbnail = styled.img`
   width: 100%;
   height: 150px;
-  object-fit: cover;
+  margin-bottom: 1rem;
+  object-fit: contain;
 `;
 
-export const Tag = styled.span`
-  display: inline-block;
-  background-color: #3676e8;
-  color: white;
-  padding: 0.4rem 0.6rem;
-  border-radius: 12px;
+export const BottomArea = styled.div`
+  height: 20px;
+`;
+
+export const CreatedAt = styled.div`
+  color: #878e96;
   font-size: 0.8rem;
-  margin-right: 0.5rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 
 export const ButtonBox = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
+  margin-top: 1rem;
 `;
 
 export const EditButton = styled(Link)`
