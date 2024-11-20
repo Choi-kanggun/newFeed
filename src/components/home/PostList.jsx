@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { PostListContainer } from '../../styles/PostList';
 import { PostListContainer, SearchIcon, SearchInput, SearchInputContainer } from '../../styles/PostList';
 import PostCard from './PostCard';
 import { supabase } from '../../supabase/supabaseClient';
