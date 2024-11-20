@@ -79,6 +79,16 @@ const MyInformation = () => {
       if (error) {
         throw error;
       }
+
+      const { error: authError } = await supabase.auth.updateUser({
+        data: {
+          nickname: newNickname,
+          profile_img_url: newProfileImg
+        }
+      });
+      if (authError) {
+        throw authError;
+      }
     } catch (error) {
       console.error(error);
     }
