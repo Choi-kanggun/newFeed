@@ -30,7 +30,7 @@ const Header = () => {
         } = await supabase.auth.getUser();
 
         if (error) throw error;
-
+        console.log(user);
         setUser(user);
       } catch (error) {
         console.error(error);
