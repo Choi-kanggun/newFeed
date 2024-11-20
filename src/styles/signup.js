@@ -16,6 +16,7 @@ export const StyledForm = styled.form`
   width: 600px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 15px;
 `;
 
@@ -27,17 +28,17 @@ export const InputWrapper = styled.div`
 `;
 
 export const Label = styled.label`
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
   margin-bottom: 5px;
 `;
 
 export const Input = styled.input`
-  padding: 12px;
+  padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 1px;
+  width: 450px;
   outline: none;
 
   &:focus {
@@ -53,13 +54,14 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  padding: 8px;
+  padding: 0.3rem 0.8rem;
   font-size: 16px;
   background-color: white;
   border: 1px solid black;
   border-radius: 20px;
-  width: 150px;
+  width: 120px;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
   &:hover {
     background-color: black;

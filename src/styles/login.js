@@ -50,20 +50,24 @@ export const Input = styled.input`
 `;
 
 export const ButtonContainer = styled.div`
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
   display: flex;
   justify-content: space-around;
   width: 100%;
 `;
 
 export const Button = styled.button`
-  padding: 8px;
+  padding: 0.3rem 0.8rem;
   background-color: white;
   font-size: 16px;
   border-radius: 20px;
   margin-right: 10px;
-  width: 150px;
+  width: 120px;
   border: 1px solid black;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
   &:hover {
     background-color: black;
     color: white;

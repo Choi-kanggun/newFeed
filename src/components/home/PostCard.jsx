@@ -21,6 +21,11 @@ import {
   Title
 } from '../../styles/PostCard';
 
+import { getYoutubeThumbnailUrl } from '../../utils/youtubeThumbnail';
+import { formatDate } from '../../utils/formattedDate';
+import { addLike, checkLike, getLikesCount, removeLike } from '../../api/likes';
+import { supabase } from '../../supabase/supabaseClient';
+
 const PostCard = ({ post, type, handleDeleteCard }) => {
   const thumbnailUrl = getYoutubeThumbnailUrl(post.song_url);
   const formattedDate = formatDate(post.created_at);

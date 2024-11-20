@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Btn, Div, Div2, Form } from '../../styles/post';
+import { Btn, Div, Div2, Form, Label } from '../../styles/post';
 import { supabase } from '../../supabase/supabaseClient';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Input } from '../../styles/login';
@@ -43,19 +43,19 @@ const Correction = () => {
       <Div>
         <Form>
           <Div2>
-            <label>영상링크</label>
+            <Label>영상링크</Label>
             <Input value={song_url} onChange={handelSongUrlChange} />
           </Div2>
           <Div2>
-            <label>제목</label>
+            <Label>제목</Label>
             <Input value={title} onChange={handelTitleChange} />
           </Div2>
           <Div2>
-            <label>추천 이유</label>
+            <Label>추천 이유</Label>
             <Input value={content} onChange={handelContentChange} />
           </Div2>
           <Div2>
-            <label>태그</label>
+            <Label>태그</Label>
             <Input />
           </Div2>
           <Btn onClick={handelSaveEdit}>수정하기</Btn>

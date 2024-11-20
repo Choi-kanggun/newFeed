@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { PostListContainer } from '../../styles/PostList';
+import { PostListContainer, SearchIcon, SearchInput, SearchInputContainer } from '../../styles/PostList';
 import PostCard from './PostCard';
 import { supabase } from '../../supabase/supabaseClient';
+import searchIconImg from '../../assets/images/search.png';
 
 const PostList = ({ posts, type, handleDeleteCard, setPosts }) => {
   //
@@ -21,9 +23,10 @@ const PostList = ({ posts, type, handleDeleteCard, setPosts }) => {
   //
   return (
     <>
-      {/* {} */}
-      <input value={searchSong} placeholder="노래를 검색하세요" onChange={searchHandel} />
-      {/* {} */}
+      <SearchInputContainer>
+        <SearchInput value={searchSong} placeholder="노래를 검색하세요" onChange={searchHandel} />
+        <SearchIcon src={searchIconImg} ale="돋보기 이미지" />
+      </SearchInputContainer>
       <PostListContainer>
         {posts.map((post) => {
           return <PostCard key={post.id} post={post} type={type} handleDeleteCard={handleDeleteCard} />;
