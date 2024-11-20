@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Btn, Div, Div2, Form } from '../../styles/post';
+import { Btn, Div, Div2, Form, Input } from '../../styles/post';
 
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../supabase/supabaseClient';
@@ -32,19 +32,19 @@ const CreatePost = () => {
       <Form onSubmit={handelSubmit}>
         <Div2>
           <label>영상링크</label>
-          <input type="text" value={song_url} onChange={handelLinkValue} />
+          <Input type="text" value={song_url} onChange={handelLinkValue} />
         </Div2>
         <Div2>
           <label>제목</label>
-          <input type="text" value={title} onChange={handleTitle} />
+          <Input type="text" value={title} onChange={handleTitle} />
         </Div2>
         <Div2>
           <label>추천 이유</label>
-          <input type="text" value={content} onChange={handelReview} />
+          <Input type="text" value={content} onChange={handelReview} />
         </Div2>
         <Div2>
           <label>태그</label>
-          <input type="text" />
+          <Input type="text" />
         </Div2>
         <Btn>등록</Btn>
       </Form>
