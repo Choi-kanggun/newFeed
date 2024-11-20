@@ -18,7 +18,7 @@ const LoginComponent = () => {
     setEmail(value);
 
     if (!value) {
-      setEmailError('이메일을 입력해주세요.');
+      setEmailError('');
     } else if (!/\S+@\S+\.\S+/.test(value)) {
       setEmailError('올바른 이메일 형식이 아닙니다.');
     } else {
@@ -30,9 +30,7 @@ const LoginComponent = () => {
     const value = e.target.value;
     setPassword(value);
 
-    if (!value) {
-      setPasswordError("비밀번호를 입력해주세요.");
-    } else {
+    if (value) {
       setPasswordError('');
     }
   }

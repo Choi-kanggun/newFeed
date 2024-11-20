@@ -16,74 +16,83 @@ const SignUpComponent = () => {
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const [nicknameError, setNicknameError] = useState('');
 
+      // 이메일 유효성 검사
+  const handleEmailChange = () => {
+    const email = emailRef.current.value.trim();
+    if (email && (!email.includes('@') || !email.endsWith('.com'))) {
+      setEmailError('유효한 이메일 형식으로 입력해주세요.');
+    } else {
+      setEmailError('');
+    }
+  };
+
+  // 비밀번호 유효성 검사
+  const handlePasswordChange = () => {
+    const password = passwordRef.current.value;
+    if (password && password.length < 6) {
+      setPasswordError('비밀번호는 최소 6자 이상이어야 합니다.');
+    } else {
+      setPasswordError('');
+    }
+  };
+
+  // 비밀번호 확인 유효성 검사
+  const handleConfirmPasswordChange = () => {
+    const password = passwordRef.current.value;
+    const confirmPassword = confirmPasswordRef.current.value;
+    if (confirmPassword && password !== confirmPassword) {
+      setConfirmPasswordError('비밀번호가 일치하지 않습니다.');
+    } else {
+      setConfirmPasswordError('');
+    }
+  };
+
+  // 회원가입 처리
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    const email = emailRef.current.value.trim();
+    const password = passwordRef.current.value;
+    const confirmPassword = confirmPasswordRef.current.value;
+    const nickname = nicknameRef.current.value.trim();
+
+    let isValid = true;
+
+    // 닉네임 유효성 검사
+    if (nickname && !nicknameError) {
+      setNicknameError('');
+    } else if (!nickname) {
+      setNicknameError('닉네임을 입력해주세요.');
+      isValid = false;
+    }
+
     // 이메일 유효성 검사
-    const handleEmailChange = () => {
-      const email = emailRef.current.value.trim();
-      if (!email.includes('@') || !email.endsWith('.com')) {
-        setEmailError('유효한 이메일 형식으로 입력해주세요.');
-      } else {
-        setEmailError('');
-      }
-    };
-  
+    if (email && (!email.includes('@') || !email.endsWith('.com'))) {
+      setEmailError('유효한 이메일 형식으로 입력해주세요.');
+      isValid = false;
+    } else if (!email) {
+      setEmailError('');
+    }
+
     // 비밀번호 유효성 검사
-    const handlePasswordChange = () => {
-      const password = passwordRef.current.value;
-      if (password.length < 6) {
-        setPasswordError('비밀번호는 최소 6자 이상이어야 합니다.');
-      } else {
-        setPasswordError('');
-      }
-    };
-  
+    if (password && password.length < 6) {
+      setPasswordError('비밀번호는 최소 6자 이상이어야 합니다.');
+      isValid = false;
+    } else if (!password) {
+      setPasswordError('');
+    }
+
     // 비밀번호 확인 유효성 검사
-    const handleConfirmPasswordChange = () => {
-      const password = passwordRef.current.value;
-      const confirmPassword = confirmPasswordRef.current.value;
-      if (password !== confirmPassword) {
-        setConfirmPasswordError('비밀번호가 일치하지 않습니다.');
-      } else {
-        setConfirmPasswordError('');
-      }
-    };
-  
-    // 회원가입 처리
-    const handleSignup = async (e) => {
-      e.preventDefault();
-  
-      const email = emailRef.current.value.trim();
-      const password = passwordRef.current.value;
-      const confirmPassword = confirmPasswordRef.current.value;
-      const nickname = nicknameRef.current.value.trim();
-  
-      let isValid = true;
-  
-      // 닉네임 유효성 검사
-      if (!nickname) {
-        setNicknameError('닉네임을 입력해주세요.');
-        isValid = false;
-      } else {
-        setNicknameError('');
-      }
-  
-      if (!email.includes('@') || !email.endsWith('.com')) {
-        setEmailError('유효한 이메일 형식으로 입력해주세요.');
-        isValid = false;
-      }
-  
-      if (password.length < 6) {
-        setPasswordError('비밀번호는 최소 6자 이상이어야 합니다.');
-        isValid = false;
-      }
-  
-      if (password !== confirmPassword) {
-        setConfirmPasswordError('비밀번호가 일치하지 않습니다.');
-        isValid = false;
-      }
-  
-      if (!isValid) {
-        return;
-      }
+    if (confirmPassword && password !== confirmPassword) {
+      setConfirmPasswordError('비밀번호가 일치하지 않습니다.');
+      isValid = false;
+    } else if (!confirmPassword) {
+      setConfirmPasswordError('');
+    }
+
+    if (!isValid) {
+      return;
+    }
 
     const { data, error } = await supabase.auth.signUp({
       email: emailRef.current.value,
