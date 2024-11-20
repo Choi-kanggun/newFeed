@@ -8,12 +8,44 @@ import { HeaderContainer, Logo } from '../../styles/header';
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    if (!value) {
+      setEmailError('이메일을 입력해주세요.');
+    } else if (!/\S+@\S+\.\S+/.test(value)) {
+      setEmailError('올바른 이메일 형식이 아닙니다.');
+    } else {
+      setEmailError('');
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+
+    if (!value) {
+      setPasswordError("비밀번호를 입력해주세요.");
+    } else {
+      setPasswordError('');
+    }
+  }
 
   const handleLogin = async (e) => {
     e.preventDefault();
-  
-    if (!email || !password) {
-      alert('이메일과 비밀번호를 둘 다 입력해주세요.');
+    
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      setEmailError('이메일을 올바르게 입력해주세요.');
+      return;
+    }
+
+    if (!password) {
+      setPasswordError('비밀번호를 입력해주세요.');
       return;
     }
   
@@ -22,7 +54,7 @@ const LoginComponent = () => {
       alert('로그인이 완료되었습니다.');
 
     } catch (error) {
-      alert('로그인 실패: ' + error.message);
+      alert('로그인 실패: 이메일 또는 비밀번호가 올바르지 않습니다.');
     }
   };
 
@@ -39,8 +71,9 @@ const LoginComponent = () => {
             type="email"
             placeholder="이메일을 입력해주세요"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleEmailChange}
           />
+          {emailError && <span style={{color: 'red', fontSize: '12px'}}>{emailError}</span>}
         </InputWrapper>
         <InputWrapper>
           <Label>비밀번호</Label>
@@ -48,8 +81,9 @@ const LoginComponent = () => {
             type="password"
             placeholder="비밀번호를 입력해주세요"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePasswordChange}
           />
+          {passwordError && <span style={{color: 'red', fontSize: '12px'}}>{passwordError}</span>}
         </InputWrapper>
         <ButtonContainer>
           <Link to="/signup">
