@@ -102,4 +102,17 @@ export const DropdownButton = styled(Link)`
   font-size: 1rem;
   text-decoration: none;
   color: black;
+  padding: 20px 10px;
+  &:hover {
+    background-color: gray;
+  }
+`;
+
+export const LogoutBtn = styled.button`
+  cursor: pointer;
+  padding: 20px 10px;
+  font-size: 1rem;
+  &:hover {
+    background-color: gray;
+  }
 `;

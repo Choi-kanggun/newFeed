@@ -18,9 +18,8 @@ import {
   Wrapper
 } from '../../styles/myInformation';
 import { supabase } from '../../supabase/supabaseClient';
-import Header from '../common/Header';
 
-const DEFAULT_IMAGE_URL = 'https://ufvtkvcvhdpfbwmpvmnu.supabase.co/storage/v1/object/public/avatars/default.jpg';
+const DEFAULT_IMAGE_URL = 'https://i.pinimg.com/736x/3b/73/a1/3b73a13983f88f8b84e130bb3fb29e17.jpg';
 const MyInformation = () => {
   const [profileImg, setProfileImg] = useState(null);
   const [newProfileImg, setNewProfileImg] = useState(null);
@@ -45,14 +44,14 @@ const MyInformation = () => {
 
         const { data, error: userError } = await supabase
           .from('users')
-          .select('nickname, profile_url')
+          .select('nickname, profile_img_url')
           .eq('id', user.id)
           .single();
 
         if (userError) throw userError;
 
         setNickname(data.nickname);
-        setProfileImg(data.profile_url);
+        setProfileImg(data.profile_img_url);
 
         if (nickNameRef.current) {
           nickNameRef.current.value = data.nickname;
@@ -69,7 +68,7 @@ const MyInformation = () => {
   const updateUserInfo = async (id, newProfileImg, newNickname) => {
     const { data, error } = await supabase
       .from('users')
-      .update({ profile_url: newProfileImg, nickname: newNickname })
+      .update({ profile_img_url: newProfileImg, nickname: newNickname })
       .eq('id', id);
 
     if (error) {
@@ -113,7 +112,7 @@ const MyInformation = () => {
 
       // 데이터베이스 업데이트
       if (user?.id) {
-        const { error } = await supabase.from('users').update({ profile_url: DEFAULT_IMAGE_URL }).eq('id', user.id);
+        const { error } = await supabase.from('users').update({ profile_img_url: DEFAULT_IMAGE_URL }).eq('id', user.id);
 
         if (error) {
           console.error(error);

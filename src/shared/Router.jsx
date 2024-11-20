@@ -18,11 +18,11 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
-          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/login" element={<Login />}></Route>
           <Route path="/mypost" element={<MyPost />}></Route>
-          <Route path="/CreatePost" element={<CreatePostPage />}></Route>
-          <Route path="/Correction/:id" element={<CorrectionPage />}></Route>
-          <Route path="/detail" element={<Detail />}></Route>
+          <Route path="/createpost" element={<CreatePostPage />}></Route>
+          <Route path="/correction/:id" element={<CorrectionPage />}></Route>
+          <Route path="/detail/:id" element={<Detail />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
         </Routes>
       </AuthProvider>

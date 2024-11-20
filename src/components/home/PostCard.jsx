@@ -11,19 +11,23 @@ import {
   Title
 } from '../../styles/postCard';
 import { getYoutubeThumbnailUrl } from '../../utils/youtubeThumbnail';
+import { Link } from 'react-router-dom';
 
 const PostCard = ({ post, type, handleDeleteCard }) => {
   const thumbnailUrl = getYoutubeThumbnailUrl(post.song_url);
+
   return (
     <PostCardContainer>
-      <PostCardHeader>
-        <ProfileImage src={post.users.profile_url} alt={post.users.nickname} />
-        <span>{post.users.nickname}</span>
-      </PostCardHeader>
-      <Title>
-        <p>{post.title}</p>
-      </Title>
-      <Thumbnail src={thumbnailUrl} alt={post.title} />
+      <Link to={`/detail/${post.id}`}>
+        <PostCardHeader>
+          <ProfileImage src={post.users.profile_img_url} alt={post.users.nickname} />
+          <span>{post.users.nickname}</span>
+        </PostCardHeader>
+        <Title>
+          <p>{post.title}</p>
+        </Title>
+        <Thumbnail src={thumbnailUrl} alt={post.title} />
+      </Link>
       {/* <div>
         {post.tags.map((tag, index) => {
           return <Tag key={index}>{tag}</Tag>;

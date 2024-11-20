@@ -94,6 +94,8 @@ export const CommentListBox = styled.div`
 
 export const CommentList = styled.div``;
 
+export const CommentItem = styled.div``;
+
 export const CommentInfoBox = styled.div`
   display: flex;
   flex-direction: row;

@@ -22,7 +22,7 @@ const MyPostComponent = () => {
         .from('posts')
         .select(
           `id, title, content, song_url, user_id, users (
-        id, nickname, profile_url)`
+        id, nickname, profile_img_url)`
         )
         .eq('user_id', userId);
       if (error) {

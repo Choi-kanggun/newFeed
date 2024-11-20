@@ -28,7 +28,7 @@ const SignUpComponent = () => {
       options: {
         data: {
           nickname: nicknameRef.current.value,
-          profile_url: 'https://i.pinimg.com/736x/3b/73/a1/3b73a13983f88f8b84e130bb3fb29e17.jpg'
+          profile_img_url: 'https://i.pinimg.com/736x/3b/73/a1/3b73a13983f88f8b84e130bb3fb29e17.jpg'
         }
       }
     });
