@@ -9,6 +9,28 @@ const LoginComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+  
+    if (!email || !password) {
+      alert('이메일과 비밀번호를 둘 다 입력해주세요.');
+      return;
+    }
+  
+    try {
+      await signIn({ email, password });
+      alert('로그인이 완료되었습니다.');
+
+    } catch (error) {
+      alert('로그인 실패: ' + error.message);
+    }
+  };
+
+  const handleEnterDown = (e) => {
+    if (e.key === 'Enter') {
+      handleLogin(e); // 엔터 키가 눌리면 로그인 함수 호출
+    }
+  };
   
 
   return (
@@ -17,7 +39,7 @@ const LoginComponent = () => {
     <Logo style={{margin:'0 auto'}}>Replay</Logo>
     </HeaderContainer>
     <Container>
-      <StyledForm>
+      <StyledForm onSubmit={handleLogin} onKeyDown={handleEnterDown}>
         <InputWrapper>
           <Label>아이디</Label>
           <Input
@@ -40,7 +62,7 @@ const LoginComponent = () => {
           <Link to="/signup">
             <Button type="button">회원가입</Button>
           </Link>
-          <Button type="button" onClick={() => signIn({ email, password })}>
+          <Button type="submit">
             로그인
           </Button>
         </ButtonContainer>
