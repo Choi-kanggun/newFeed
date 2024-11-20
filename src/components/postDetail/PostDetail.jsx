@@ -1,22 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import {
+  AddCommentTextArea,
   Comment,
   CommentBox,
+  CommentContentBox,
   CommentInfo,
   CommentInfoBox,
   CommentInput,
   CommentInputBox,
   CommentItem,
   CommentListBox,
+  CompleteBtnBox,
+  CompleteEditBtn,
   Container,
   ContainerLeft,
   ContainerRight,
+  Content,
   ContentBox,
+  DefaultMessage,
+  DeleteBtn,
+  EditBtn,
+  EditBtnBox,
+  EditCancelBtn,
+  EditCommentBox,
+  EditTextArea,
   Form,
   Player,
   ProfileImg,
   SubmitBtn,
-  TextArea,
   VideoBox,
   Wrapper,
   Writer
@@ -39,7 +50,6 @@ const PostDetail = () => {
       try {
         const { data: post, error } = await supabase.from('posts').select('*').eq('id', id);
         if (error) {
-          console.error(error);
           throw error;
         }
         setPostData(post[0]); // 게시글 데이터를 postData state에 저장
@@ -51,7 +61,6 @@ const PostDetail = () => {
         } = await supabase.auth.getUser();
 
         if (userError) {
-          console.error(userError);
           throw userError;
         }
 
@@ -76,7 +85,6 @@ const PostDetail = () => {
         .eq('post_id', id); // params로 가져온 게시글 id의 정보로 댓글을 가져온다.
 
       if (error) {
-        console.error(error);
         throw error;
       }
 
@@ -94,7 +102,6 @@ const PostDetail = () => {
         .insert([{ post_id: id, user_id: user.id, comment: newComment }]); // 댓글을 supabase table에 저장한다.
 
       if (error) {
-        console.error(error);
         throw error;
       }
 
@@ -113,7 +120,6 @@ const PostDetail = () => {
       const { error } = await supabase.from('comments').update({ comment: editComment }).eq('id', editCommentId);
 
       if (error) {
-        console.error(error);
         throw error;
       }
 
@@ -131,7 +137,6 @@ const PostDetail = () => {
       // 삭제할 댓글의 id인 commentId와 일치하는 comments 테이블의 댓글을 찾아서 지운다.
       const { error } = await supabase.from('comments').delete().eq('id', commentId);
       if (error) {
-        console.error(error);
         throw error;
       }
 
@@ -166,34 +171,48 @@ const PostDetail = () => {
                       <CommentInfoBox>
                         <ProfileImg src={comment.users.profile_img_url} />
                         <CommentInfo>
-                          <TextArea value={editComment} onChange={(e) => setEditComment(e.target.value)} />
-                          <button onClick={updateComment}>수정 완료</button>
-                          <button onClick={() => setEditCommentId(null)}>취소</button>
+                          <Writer>{comment.users.nickname}</Writer>
+                          <EditCommentBox>
+                            <EditTextArea
+                              value={editComment}
+                              onChange={(e) => setEditComment(e.target.value)}
+                              rows={1}
+                            />
+                            <CompleteBtnBox>
+                              <CompleteEditBtn onClick={updateComment}>완료</CompleteEditBtn>
+                              <EditCancelBtn onClick={() => setEditCommentId(null)}>취소</EditCancelBtn>
+                            </CompleteBtnBox>
+                          </EditCommentBox>
                         </CommentInfo>
                       </CommentInfoBox>
                     ) : (
                       <CommentInfoBox>
                         <ProfileImg src={comment.users.profile_img_url} />
                         <CommentInfo>
-                          <Writer>{comment.users.nickname}</Writer>
-                          <Comment>{comment.comment}</Comment>
-
-                          <button
-                            onClick={() => {
-                              setEditCommentId(comment.id); // 수정할 댓글 id state 변경
-                              setEditComment(comment.comment); // 현재 댓글을 수정할 댓글 state에 저장
-                            }}
-                          >
-                            수정
-                          </button>
-                          <button onClick={() => deleteComment(comment.id)}>삭제</button>
+                          <CommentContentBox>
+                            <Writer>{comment.users.nickname}</Writer>
+                            <Content>
+                              <Comment>{comment.comment}</Comment>
+                              <EditBtnBox>
+                                <EditBtn
+                                  onClick={() => {
+                                    setEditCommentId(comment.id); // 수정할 댓글 id state 변경
+                                    setEditComment(comment.comment); // 현재 댓글을 수정할 댓글 state에 저장
+                                  }}
+                                >
+                                  수정
+                                </EditBtn>
+                                <DeleteBtn onClick={() => deleteComment(comment.id)}>삭제</DeleteBtn>
+                              </EditBtnBox>
+                            </Content>
+                          </CommentContentBox>
                         </CommentInfo>
                       </CommentInfoBox>
                     )}
                   </CommentItem>
                 ))
               ) : (
-                <p>댓글이 없습니다.</p>
+                <DefaultMessage>댓글이 없습니다.</DefaultMessage>
               )}
             </CommentListBox>
 
@@ -206,7 +225,7 @@ const PostDetail = () => {
                 }}
               >
                 <CommentInput>
-                  <TextArea
+                  <AddCommentTextArea
                     placeholder="댓글을 입력해주세요."
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
