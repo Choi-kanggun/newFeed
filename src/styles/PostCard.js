@@ -55,13 +55,36 @@ export const Thumbnail = styled.img`
   object-fit: contain;
 `;
 
-export const BottomArea = styled.div`
+export const BottomBox = styled.div`
   height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const CreatedAt = styled.div`
   color: #878e96;
   font-size: 0.8rem;
+`;
+
+export const LikeButtonBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+`;
+
+export const LikeButton = styled.div`
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+`;
+
+export const LikeCount = styled.span`
+  color: #54575b;
+  font-size: 0.7rem;
 `;
 
 export const ButtonBox = styled.div`
