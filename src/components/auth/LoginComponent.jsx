@@ -22,7 +22,7 @@ const LoginComponent = () => {
           <Label>아이디</Label>
           <Input
             type="email"
-            placeholder="아이디를 입력해주세요"
+            placeholder="이메일을 입력해주세요"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />

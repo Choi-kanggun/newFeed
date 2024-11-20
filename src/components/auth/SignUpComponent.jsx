@@ -14,8 +14,24 @@ const SignUpComponent = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
 
+    const email = emailRef.current.value.trim();
     const password = passwordRef.current.value;
     const confirmPassword = confirmPasswordRef.current.value;
+    const nickname = nicknameRef.current.value.trim();
+
+    if (!nickname) {
+      alert("닉네임을 입력해주세요.");
+      return;
+    }
+
+    if (!email.includes("@") || !email.endsWith(".com")) {
+      alert("유효한 이메일 형식으로 입력해주세요.");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("비밀번호는 최소 6자 이상이어야 합니다.")
+    }
 
     if (password !== confirmPassword) {
       alert('비밀번호가 일치하지 않습니다.');
@@ -45,8 +61,7 @@ const SignUpComponent = () => {
       return;
     }
 
-    alert('회원가입 성공!');
-
+    alert('회원가입이 완료되었습니다!');
     await supabase.auth.signOut();
     navigate('/login');
   };
@@ -60,7 +75,7 @@ const SignUpComponent = () => {
         <StyledForm onSubmit={handleSignup}>
           <InputWrapper>
             <Label>아이디</Label>
-            <Input type="email" placeholder="아이디를 입력하세요" ref={emailRef} />
+            <Input type="email" placeholder="이메일을 입력하세요" ref={emailRef} />
           </InputWrapper>
           <InputWrapper>
             <Label>비밀번호</Label>
