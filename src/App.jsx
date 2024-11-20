@@ -8,6 +8,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Pretendard-Regular';
   }
+  html, body {
+  height: 100%;
+}
 `;
 
 const App = () => {

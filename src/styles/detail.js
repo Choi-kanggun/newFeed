@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
-  min-height: 100vh;
+  height: calc(100vh - 100px);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -14,12 +13,12 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   border-radius: 10px;
-  width: 70%;
-  height: 80%;
+  width: 60%;
+  height: 60%;
   display: flex;
   flex-direction: row;
   background-color: white;
-  box-shadow: 1px 10px 10px rgba(1, 1, 1, 0.3);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 export const ContainerLeft = styled.div`
@@ -153,10 +152,10 @@ export const CommentInput = styled.div`
 `;
 
 export const AddCommentTextArea = styled.textarea`
-  padding: 10px 10px;
+  padding: 5px 10px;
   width: 70%;
   border: 1px solid lightgray;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-right: 10px;
   font-size: 1.2rem;
 `;
@@ -207,6 +206,8 @@ export const EditBtnBox = styled.div`
 `;
 export const DefaultMessage = styled.p`
   font-size: 20px;
+  color: #878e96;
+  margin-left: 20px;
 `;
 export const Content = styled.div`
   width: 100%;

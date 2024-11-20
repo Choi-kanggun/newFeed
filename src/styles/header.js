@@ -6,7 +6,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3.5rem 1rem 6rem;
+  padding: 1rem 4.5rem 1rem 6rem;
 `;
 
 export const HomeButton = styled(Link)`

@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
-  min-height: 100vh;
+  height: calc(100vh - 100px);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -14,12 +13,12 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   border-radius: 10px;
   width: 60%;
-  height: 80%;
+  height: 60%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   background-color: white;
-  box-shadow: 1px 10px 10px rgba(1, 1, 1, 0.3);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 export const ContainerLeft = styled.div`
@@ -58,7 +57,7 @@ export const ProfileImgBox = styled.div`
 export const ProfileImg = styled.img`
   width: 200px;
   height: 200px;
-  box-shadow: 1px 1px 10px rgba(1, 1, 1, 0.3);
+  box-shadow: 1px 1px 7px rgba(1, 1, 1, 0.3);
   border-radius: 50%;
   object-fit: contain;
 `;
@@ -85,6 +84,7 @@ export const ImgBtnBox = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 100px;
+  margin-top: 20px;
 `;
 
 export const SelectBtnBox = styled.div`
@@ -111,9 +111,12 @@ export const SelectImg = styled.label`
   background-color: white;
   cursor: pointer;
   text-align: center;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
   &:hover {
     color: white;
     background-color: black;
+    font-weight: bold;
   }
 `;
 export const SubmitBtnBox = styled.div`
@@ -125,6 +128,8 @@ export const SubmitBtnBox = styled.div`
 
 export const SubmitBtn = styled(Button)`
   width: 80px;
+  margin-right: 18px;
+  margin-top: 20px;
 `;
 
 export const NickNameBox = styled.div`
@@ -136,6 +141,7 @@ export const NickNameBox = styled.div`
 
 export const UserNickName = styled.p`
   margin: 15px 0;
+  margin-left: 3px;
   font-size: 40px;
   font-weight: bold;
 `;
@@ -145,7 +151,7 @@ export const NewNickInput = styled.input`
   border: none;
   padding: 15px 10px;
   width: 50%;
-  box-shadow: 1px 1px 10px rgba(1, 1, 1, 0.3);
+  box-shadow: 1px 1px 7px rgba(1, 1, 1, 0.3);
   border-radius: 10px;
 `;
 
