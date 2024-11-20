@@ -21,7 +21,7 @@ const MyPostComponent = () => {
       const { data, error } = await supabase
         .from('posts')
         .select(
-          `id, title, content, song_url, user_id, users (
+          `id, title, content, song_url, user_id, created_at, users (
         id, nickname, profile_img_url)`
         )
         .eq('user_id', userId);

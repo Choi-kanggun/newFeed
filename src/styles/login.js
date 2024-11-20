@@ -19,8 +19,7 @@ export const StyledForm = styled.form`
   width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  transform: translateY(-56);
+  gap: 20px;
 `;
 
 export const InputWrapper = styled.div`
@@ -40,7 +39,7 @@ export const Input = styled.input`
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-bottom: 15px;
+  margin-bottom: 1px;
   width: 450px;
 
   &:focus {
@@ -58,15 +57,14 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.button`
   padding: 8px;
-  background-color: #3676e8;
+  background-color: white;
   font-size: 16px;
-  border: none;
   border-radius: 20px;
   margin-right: 10px;
   width: 150px;
   cursor: pointer;
-
   &:hover {
-    background-color: #2e6bcc;
+    background-color: black;
+    color: white;
   }
 `;

@@ -35,7 +35,7 @@ export const NewPostButton = styled(Link)`
   padding: 0.5rem 1rem;
   background-color: #f8f9fa;
   color: black;
-  font-weight: bold;
+  font-weight: 600;
   border: 1px solid black;
   border-radius: 20px;
   text-decoration: none;
@@ -87,32 +87,24 @@ export const Dropdown = styled.ul`
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-
-  li {
-    padding: 1rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #f8f9fa;
-    }
-  }
+  z-index: 1000;
 `;
 
 export const DropdownButton = styled(Link)`
   font-size: 1rem;
   text-decoration: none;
   color: black;
-  padding: 20px 10px;
+  padding: 1rem;
   &:hover {
-    background-color: gray;
+    background-color: #f8f9fa;
   }
 `;
 
 export const LogoutBtn = styled.button`
   cursor: pointer;
-  padding: 20px 10px;
+  padding: 1rem;
   font-size: 1rem;
   &:hover {
-    background-color: gray;
+    background-color: #f8f9fa;
   }
 `;
