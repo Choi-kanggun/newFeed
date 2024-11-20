@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from 'react';
+
+import { getYoutubeThumbnailUrl } from '../../utils/youtubeThumbnail';
+import { formatDate } from '../../utils/formattedDate';
+import { addLike, checkLike, getLikesCount, removeLike } from '../../api/likes';
+import { supabase } from '../../supabase/supabaseClient';
 import {
   BottomBox,
   ButtonBox,
@@ -14,11 +19,7 @@ import {
   StLink,
   Thumbnail,
   Title
-} from '../../styles/postCard';
-import { getYoutubeThumbnailUrl } from '../../utils/youtubeThumbnail';
-import { formatDate } from '../../utils/formattedDate';
-import { addLike, checkLike, getLikesCount, removeLike } from '../../api/likes';
-import { supabase } from '../../supabase/supabaseClient';
+} from '../../styles/PostCard';
 
 const PostCard = ({ post, type, handleDeleteCard }) => {
   const thumbnailUrl = getYoutubeThumbnailUrl(post.song_url);

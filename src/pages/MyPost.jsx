@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/common/Header';
-import MyPostComponent from '../components/mypost/MyPostComponent';
+import MyPostComponent from '../components/myPost/MyPostComponent';
 
 const MyPost = () => {
   return (
