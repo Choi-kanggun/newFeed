@@ -26,20 +26,13 @@ const LoginComponent = () => {
     }
   };
 
-  const handleEnterDown = (e) => {
-    if (e.key === 'Enter') {
-      handleLogin(e); // 엔터 키가 눌리면 로그인 함수 호출
-    }
-  };
-  
-
   return (
     <>
     <HeaderContainer>
     <Logo style={{margin:'0 auto'}}>Replay</Logo>
     </HeaderContainer>
     <Container>
-      <StyledForm onSubmit={handleLogin} onKeyDown={handleEnterDown}>
+      <StyledForm onSubmit={handleLogin}>
         <InputWrapper>
           <Label>아이디</Label>
           <Input
