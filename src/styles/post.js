@@ -53,5 +53,6 @@ export const Input = styled.input`
   border-radius: 10px;
   width: 403px;
   height: 50px;
+
   border: 1px solid #ccc;
 `;
