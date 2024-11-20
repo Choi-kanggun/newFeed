@@ -22,7 +22,7 @@ const HomeComponent = () => {
 
   return (
     <HomeContainer>
-      <PostList posts={posts} />
+      <PostList posts={posts} setPosts={setPosts} />
     </HomeContainer>
   );
 };

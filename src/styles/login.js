@@ -5,14 +5,14 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: calc(100vh - 56px);
-  background: #F8F9FA;
+  background: #f8f9fa;
 `;
 
 export const StyledForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -30,7 +30,6 @@ export const InputWrapper = styled.div`
   gap: 5px;
 `;
 
-
 export const Label = styled.label`
   font-size: 16px;
   margin-bottom: 5px;
@@ -45,7 +44,7 @@ export const Input = styled.input`
   width: 450px;
 
   &:focus {
-    border-color: #3676E8;
+    border-color: #3676e8;
     box-shadow: 0 0 3px rgba(76, 175, 80, 0.2);
     outline: none;
   }
@@ -59,15 +58,15 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.button`
   padding: 8px;
-  background-color: #3676E8;
+  background-color: #3676e8;
   font-size: 16px;
   border: none;
   border-radius: 20px;
   margin-right: 10px;
-  width: 150px; 
+  width: 150px;
   cursor: pointer;
 
   &:hover {
-    background-color: #2E6BCC;
+    background-color: #2e6bcc;
   }
 `;

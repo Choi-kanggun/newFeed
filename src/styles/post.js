@@ -35,16 +35,17 @@ export const Form = styled.form`
 
 export const Btn = styled.button`
   padding: 8px;
-  background-color: #3676e8;
+  background-color: white;
   font-size: 16px;
-  border: none;
+  border: 1px solid black;
   border-radius: 20px;
   margin-right: 10px;
   width: 150px;
   cursor: pointer;
 
   &:hover {
-    background-color: #2e6bcc;
+    background-color: black;
+    color: white;
   }
 `;
 
