@@ -55,15 +55,15 @@ export const ButtonContainer = styled.div`
 export const Button = styled.button`
   padding: 8px;
   font-size: 16px;
-  background-color: #3676e8;
-  border: none;
+  background-color: white;
+  border: 1px solid black;
   border-radius: 20px;
   width: 150px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #3272dc;
+    background-color: black;
+    color: white;
   }
 `;
 

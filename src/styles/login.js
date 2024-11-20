@@ -19,7 +19,7 @@ export const StyledForm = styled.form`
   width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
   transform: translateY(-56);
 `;
 
@@ -59,15 +59,17 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.button`
   padding: 8px;
-  background-color: #3676E8;
+  background-color: white;
   font-size: 16px;
   border: none;
   border-radius: 20px;
   margin-right: 10px;
-  width: 150px; 
+  width: 150px;
+  border: 1px solid black;
   cursor: pointer;
 
   &:hover {
-    background-color: #2E6BCC;
+    background-color: black;
+    color: white;
   }
 `;
