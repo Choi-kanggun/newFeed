@@ -43,6 +43,14 @@
 
 <br/>
 
+# 🎥 시연 영상
+<details>
+<summary>영상 1</summary>
+<div markdown="1">
+![1 회원가입,로그인](https://github.com/user-attachments/assets/526ee88a-aca8-416d-8ff3-a5848fff6530)
+</div>
+</details>
+
 # ⚙️ Development Environment
 `upabase/supabase-js: ^2.46.1` `react-router-dom: ^6.28.0` `styled-components: ^6.1.13` `styled-reset: ^4.5.2` `vite: ^5.4.10`
 
