@@ -121,13 +121,13 @@ export const ProfileImg = styled.img`
 
 export const Writer = styled.span`
   line-height: 2;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 `;
 
 export const Comment = styled.p`
   word-break: break-all;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 `;
 
 export const Form = styled.form`
@@ -232,5 +232,5 @@ export const EditCommentBox = styled.div`
 `;
 
 export const CompleteBtnBox = styled.div`
-  width: 30%;
+  width: 39%;
 `;
