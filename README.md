@@ -2,7 +2,7 @@
 
 ### [오늘의 노래를 추천해주는 뉴스피드 프로젝트](news-feed-brown.vercel.app)
 
-![Macbook Pro - Dark Background](https://github.com/user-attachments/assets/3808c2c9-99ca-435c-9095-2ba98a6ce3d4)
+![Macbook Pro - Dark Background](https://github.com/user-attachments/assets/da7200bf-fd98-46f2-98b2-9cbf2075d0b9)
 
 # 👨‍👩‍👧‍👦 Our Team 
 | 최강건        |    우지영      |  한다영        |    주호빈      |
