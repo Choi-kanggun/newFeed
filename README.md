@@ -1,8 +1,7 @@
 # 🎧 welcome to Replay 🎧
 
-### [오늘의 노래를 추천해주는 뉴스피드 프로젝트](news-feed-brown.vercel.app)
-### [오늘의 노래를 추천해주는 뉴스피드 프로젝트](https://news-feed-ik7l854vl-kangguns-projects.vercel.app)
-### [오늘의 노래를 추천해주는 뉴스피드 프로젝트](news-feed-ik7l854vl-kangguns-projects.vercel.app)
+### 오늘의 노래를 추천해주는 뉴스피드 프로젝트 
+링크: news-feed-brown.vercel.app
 
 ![Macbook Pro - Dark Background](https://github.com/user-attachments/assets/da7200bf-fd98-46f2-98b2-9cbf2075d0b9)
 
