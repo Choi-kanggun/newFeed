@@ -39,11 +39,12 @@ const MyInformation = () => {
         } = await supabase.auth.getUser();
 
         if (error) {
+          console.log(error);
           throw error;
         }
 
         setUser(user);
-
+        console.log(user);
         const { data, error: userError } = await supabase
           .from('users')
           .select('nickname, profile_img_url')
@@ -51,6 +52,7 @@ const MyInformation = () => {
           .single();
 
         if (userError) {
+          console.log(error);
           throw userError;
         }
 
@@ -69,24 +71,29 @@ const MyInformation = () => {
   }, []);
 
   // 유저 이미지, 닉네임 변경
-  const updateUserInfo = async (id, newProfileImg, newNickname) => {
+  const updateUserInfo = async (id, profileImg, newNickname) => {
     try {
       const { error } = await supabase
         .from('users')
-        .update({ profile_img_url: newProfileImg, nickname: newNickname })
+        .update({
+          profile_img_url: profileImg,
+          nickname: newNickname
+        })
         .eq('id', id);
 
       if (error) {
+        console.log(error);
         throw error;
       }
 
       const { error: authError } = await supabase.auth.updateUser({
         data: {
-          nickname: newNickname,
-          profile_img_url: newProfileImg
+          profile_img_url: profileImg,
+          nickname: newNickname
         }
       });
       if (authError) {
+        console.log(error);
         throw authError;
       }
     } catch (error) {
@@ -95,7 +102,7 @@ const MyInformation = () => {
   };
 
   // 이미지 선택
-  const onChaneFileInput = async (files) => {
+  const onChangeFileInput = async (files) => {
     const [file] = files;
 
     if (!file) {
@@ -106,6 +113,7 @@ const MyInformation = () => {
       const { data, error } = await supabase.storage.from('avatars').upload(`avatar_${Date.now()}.png`, file);
 
       if (error) {
+        console.log(error);
         throw error;
       }
 
@@ -122,10 +130,16 @@ const MyInformation = () => {
       alert('기본 이미지는 삭제할 수 없습니다.');
       return;
     }
+
     try {
       // 스토리지에서 기존 프로필 이미지 삭제
       const fileName = profileImg.split('/').pop();
-      await supabase.storage.from('avatars').remove([fileName]);
+      const { error } = await supabase.storage.from('avatars').remove([fileName]);
+
+      if (error) {
+        console.log(error);
+        throw error;
+      }
 
       // 프로필 이미지를 기본 이미지로 업데이트
       await updateUserInfo(user.id, DEFAULT_IMAGE_URL, nickname);
@@ -134,6 +148,7 @@ const MyInformation = () => {
       setNewProfileImg(null);
 
       alert('이미지 삭제 완료!');
+      debugUserMeta(); // 디버깅용 메타데이터 확인
     } catch (error) {
       console.error(error);
     }
@@ -173,7 +188,7 @@ const MyInformation = () => {
                 type="file"
                 id="postImage"
                 accept="image/*"
-                onChange={(e) => onChaneFileInput(e.target.files)}
+                onChange={(e) => onChangeFileInput(e.target.files)}
               />
               <SelectImg htmlFor="postImage">파일 선택</SelectImg>
             </ImgBtnBox>

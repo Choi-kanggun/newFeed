@@ -30,15 +30,12 @@ const Header = () => {
         } = await supabase.auth.getUser();
 
         if (error) throw error;
-        console.log(user);
         setUser(user);
       } catch (error) {
         console.error(error);
       }
     };
-
     getUserData();
-    console.log(user);
   }, []);
 
   return (
@@ -49,7 +46,7 @@ const Header = () => {
         <NewPostButton to="/createpost">새 글 작성</NewPostButton>
         <ProfileMenuBox>
           <button onClick={toggleDropdown}>
-            <img src={user?.user_metadata.profile_img_url} alt="user-profile" />
+            <img src={user?.user_metadata?.profile_img_url} alt="user-profile" />
             <span>▼</span>
           </button>
           {isDropdownOpen && (

@@ -53,7 +53,6 @@ const PostDetail = () => {
           throw error;
         }
         setPostData(post[0]); // 게시글 데이터를 postData state에 저장
-        console.log(post[0]);
         // 로그인한 사용자 정보 가져오기
         const {
           data: { user },
