@@ -45,11 +45,55 @@
 
 # 🎥 시연 영상
 <details>
-<summary>영상 1</summary>
+<summary>1. 회원가입, 로그인</summary>
 <div markdown="1">
+  
 ![1 회원가입,로그인](https://github.com/user-attachments/assets/526ee88a-aca8-416d-8ff3-a5848fff6530)
+
 </div>
 </details>
+<details>
+<summary>2. 검색, 디테일페이지, 댓글</summary>
+<div markdown="1">
+  
+![2 검색,디테일페이지,댓글](https://github.com/user-attachments/assets/82b894e6-93b5-4ce4-b29e-86fc15833b91)
+
+</div>
+</details>
+<details>
+<summary>3. 게시글 작성, 수정, 삭제</summary>
+<div markdown="1">
+
+![3 게시글 작성, 수정, 삭제](https://github.com/user-attachments/assets/9c13ca2d-9683-44d1-82d7-d1efc6b1f991)
+
+</div>
+</details>
+<details>
+<summary>4. 마이페이지 정보 수정</summary>
+<div markdown="1">
+
+![4 마이페이지 정보수정](https://github.com/user-attachments/assets/8b84d90a-2fb9-467e-8d64-1eeec62b557b)
+
+</div>
+</details>
+<details>
+<summary>5. 바뀐 프로필로 게시글, 댓글 작성</summary>
+<div markdown="1">
+
+![5 바뀐 프로필로 게시글,댓글작성](https://github.com/user-attachments/assets/e0336e06-27bf-4b86-b0b5-5db34e271ee5)
+
+</div>
+</details>
+<details>
+<summary>6. 좋아요, 로그아웃</summary>
+<div markdown="1">
+
+![6 좋아요,로그아웃](https://github.com/user-attachments/assets/538acef1-1fb2-437d-a440-201d960b95cd)
+
+</div>
+</details>
+
+<br />
 
 # ⚙️ Development Environment
 `upabase/supabase-js: ^2.46.1` `react-router-dom: ^6.28.0` `styled-components: ^6.1.13` `styled-reset: ^4.5.2` `vite: ^5.4.10`
